@@ -2,6 +2,7 @@
 echo "Welcome to Employee wage computation problem"
 isPresent=1
 wageRate=20
+empHr=0
 dayHr=12
 workingdays=20
 T=$(($RANDOM%8+1))
@@ -26,5 +27,22 @@ case $n in
 	echo "For $T hours wages are: $partTime"
 	;;
 esac
+monthlywage=$(( $wageRate * $workingdays ))
+echo "Wages "
+while [[ $days -lt 20  &&  $emphr -lt 100 ]]
+do
+        empcheck=$(($RANDOM%2+1))
+        case $empcheck in
+        1)
+                empHr=$(( $empHr + 8 ))
+        	;;
+	2)
+                empHr=$(( $empHr + 4 ))
+        	;;
+        esac
+salary=$(( $empHr * $wageRate ))
+((days++))
+echo "$salary "
+done
 monthlywage=$(( $wageRate * $workingdays ))
 echo "monthly wage = $monthlywage"
