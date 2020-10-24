@@ -9,6 +9,7 @@ salary=0
 total_sal=0
 dayHr=12
 workingdays=20
+day_cnt=0
 T=$(($RANDOM%8+1))
 echo "1. empAttendance 2.daily wage 3.Part time wage"
 read n
@@ -49,7 +50,8 @@ do
 salary=$(( $empHr * $wageRate ))
 	total_sal=$(( $total_sal + $salary ))
 	((days++))
-	echo "$salary                  $total_sal"
+	((day_cnt++))
+	echo "Day: $day_cnt	$salary              $total_sal"
 done
 }
 getWorkHrs
