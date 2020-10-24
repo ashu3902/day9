@@ -46,3 +46,21 @@ echo "$salary "
 done
 monthlywage=$(( $wageRate * $workingdays ))
 echo "monthly wage = $monthlywage"
+
+getWorkHrs()
+{
+while [[ $days -lt 20  &&  $emphr -lt 100 ]]
+do
+	empcheck=$(($RANDOM%2+1))
+	case $empcheck in
+	1)
+		empHr=$(( $empHr + 8 ))
+		;;
+	2)
+		empHr=$(( $empHr + 4 ))
+		;;
+	esac
+done
+}
+getWorkHrs
+echo "Total Working Hours are $empHr"
