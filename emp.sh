@@ -3,6 +3,7 @@ echo "Welcome to Employee wage computation problem"
 isPresent=1
 wageRate=20
 dayHr=12
+workingdays=20
 T=$(($RANDOM%8+1))
 echo "1. empAttendance 2.daily wage 3.Part time wage"
 read n
@@ -25,3 +26,5 @@ case $n in
 	echo "For $T hours wages are: $partTime"
 	;;
 esac
+monthlywage=$(( $wageRate * $workingdays ))
+echo "monthly wage = $monthlywage"
