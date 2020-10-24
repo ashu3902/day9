@@ -3,6 +3,10 @@ echo "Welcome to Employee wage computation problem"
 isPresent=1
 wageRate=20
 empHr=0
+days=0
+day=1
+salary=0
+total_sal=0
 dayHr=12
 workingdays=20
 T=$(($RANDOM%8+1))
@@ -27,29 +31,11 @@ case $n in
 	echo "For $T hours wages are: $partTime"
 	;;
 esac
-monthlywage=$(( $wageRate * $workingdays ))
-echo "Wages "
-while [[ $days -lt 20  &&  $emphr -lt 100 ]]
-do
-        empcheck=$(($RANDOM%2+1))
-        case $empcheck in
-        1)
-                empHr=$(( $empHr + 8 ))
-        	;;
-	2)
-                empHr=$(( $empHr + 4 ))
-        	;;
-        esac
-salary=$(( $empHr * $wageRate ))
-((days++))
-echo "$salary "
-done
-monthlywage=$(( $wageRate * $workingdays ))
-echo "monthly wage = $monthlywage"
 
 getWorkHrs()
 {
-while [[ $days -lt 20  &&  $emphr -lt 100 ]]
+echo "Daily wages               total wages   "
+while [[ $days -lt 20  &&  $empHr -lt 100 ]]
 do
 	empcheck=$(($RANDOM%2+1))
 	case $empcheck in
@@ -60,7 +46,13 @@ do
 		empHr=$(( $empHr + 4 ))
 		;;
 	esac
+salary=$(( $empHr * $wageRate ))
+	total_sal=$(( $total_sal + $salary ))
+	((days++))
+	echo "$salary                  $total_sal"
 done
 }
 getWorkHrs
-echo "Total Working Hours are $empHr"
+monthlywage=$(( $wageRate * $workingdays ))
+echo "monthly wages are: $monthlywage"
+echo "Working hrs= $empHr"
